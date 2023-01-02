@@ -3,7 +3,7 @@
 - JAVA 17
 - Tomcat v9.0
 - Mysql 8
-- [sql file](https://cdn.fygod.xyz/uploads/2023/01/02/1/1672672459/e5OrmWL8_yoyoshop.sql)
+- [sql file](https://cdn.fygod.xyz/yoyoshop.sql)
 
 **shopping mall designed by lanou day 5** 
 
