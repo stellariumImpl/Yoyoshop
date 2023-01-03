@@ -13,7 +13,10 @@ import javax.servlet.http.HttpSession;
 import com.lanou.yoyo.bean.Type;
 import com.lanou.yoyo.bean.User;
 import com.lanou.yoyo.service.TypeService;
+import com.lanou.yoyo.service.UserService;
 import com.lanou.yoyo.service.impl.TypeServiceImpl;
+import com.lanou.yoyo.service.impl.UserServiceImpl;
+import com.lanou.yoyo.util.SafeUtil;
 
 /**
  * Servlet implementation class AdminServlet
@@ -47,7 +50,6 @@ public class MyServlet extends HttpServlet {
 
 			request.getRequestDispatcher("/index/my.jsp").forward(request, response);
 		}
-
 	}
 
 	/**
