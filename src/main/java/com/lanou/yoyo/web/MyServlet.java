@@ -33,7 +33,7 @@ public class MyServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		User user =(User)session.getAttribute("user");
 		
-		if(user==null) { // 没有登陆 不能进入个人页面
+		if(user==null) { 
 			response.sendRedirect("/Yoyoshop/index/login");
 		}else{
 			request.setAttribute("flag", 4);
