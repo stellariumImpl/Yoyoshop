@@ -29,7 +29,7 @@
 											<h4>商品分类</h4>
 											<ul class="multi-column-dropdown">
 												<c:forEach var="type" items="${typeList}">
-													<li><a class="list" href="goods?typeid=${type.id}&page=1&size=16">${type.name}</a></li>
+													<li><a class="list" href="goods?typeid=${type.id}&page=1&size=8">${type.name}</a></li>
 												</c:forEach>
 											</ul>
 										</div>	
@@ -37,8 +37,8 @@
 								</li>
 							</ul>
 						</li>
-						<li><a href="top?typeid=2&page=1&size=16" <c:if test="${flag==7}">class="active"</c:if>>热销</a></li>
-						<li><a href="top?typeid=3&page=1&size=16" <c:if test="${flag==8}">class="active"</c:if>>新品</a></li>
+						<li><a href="top?typeid=2&page=1&size=8" <c:if test="${flag==7}">class="active"</c:if>>热销</a></li>
+						<li><a href="top?typeid=3&page=1&size=8" <c:if test="${flag==8}">class="active"</c:if>>新品</a></li>
 						<c:if test="${sessionScope.user==null}">
 							<li><a href="register" <c:if test="${flag==5}">class="active"</c:if>>注册</a></li>
 							<li><a href="login" <c:if test="${flag==6}">class="active"</c:if>>登录</a></li>
@@ -61,7 +61,7 @@
 						<form class="navbar-form" action="search" method="post">
 							<input type="text" class="form-control" name="name" value="">
 							<input type="hidden" class="form-control" name="page" value="1">
-							<input type="hidden" class="form-control" name="size" value="16">
+							<input type="hidden" class="form-control" name="size" value="8">
 							<button type="submit" class="btn btn-default" aria-label="Left Align">搜索</button>
 						</form>
 					</div>	
