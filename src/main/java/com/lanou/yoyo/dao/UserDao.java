@@ -32,4 +32,11 @@ public interface UserDao {
 	 * @return 更新成功  1 反之 0
 	 */
 	int updateUser(User user);
+	
+	/**
+	 * 根据用户id 查询用户
+	 * @param userId
+	 * @return 查询到的用户
+	 */
+	User selectUserById(int userId);
 }
