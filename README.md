@@ -1,6 +1,6 @@
-## Yoyoshop On Eclipse
+## Yoyoshop On Eclipse to be continued
 
-- JAVA 17
+- Java 17
 - Tomcat v9.0
 - Mysql 8
 - [sql file](https://cdn.fygod.xyz/yoyoshop.sql)
