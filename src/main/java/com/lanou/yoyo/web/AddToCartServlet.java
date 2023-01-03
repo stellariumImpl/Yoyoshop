@@ -28,29 +28,63 @@ public class AddToCartServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		Order o = null;
+		
 		HttpSession session = request.getSession();
-		// 从session中获取user
+		
+		if(session.getAttribute("order")!=null) {
+			o = (Order)session.getAttribute("order");
+		}else {
+			o = new Order();
+			session.setAttribute("order", o);
+		}
+		
 		User user = (User) session.getAttribute("user");
-		if (user == null) {
+		
+		if(user==null) {
 			response.getWriter().append("login");
-		} else {// 已登录 就可以购物了
-				// 获取goodid参数
+		}else {
 			String goodsIdStr = request.getParameter("goodid");
 			int goodsId = Integer.parseInt(goodsIdStr);
-
-			// 根据商品id获取商品信息
+			
 			Goods goods = goodsService.getGoodsById(goodsId);
-			// 获取库存
+			
 			Integer stock = goods.getStock();
+			
 			if (stock <= 0) {// 说明库存不足，返回empty
 				response.getWriter().append("empty");
 			} else {// 库存充足，可以加入购物车
 					// 先把商品加到购物车再返回ok
-					// 未完待续
+				o.addGoods(goods);
+				System.out.println(o.getName());
 				response.getWriter().append("ok");
 			}
-
 		}
+		
+		
+// 		HttpSession session = request.getSession();
+// 		// 从session中获取user
+// 		User user = (User) session.getAttribute("user");
+// 		if (user == null) {
+// 			response.getWriter().append("login");
+// 		} else {// 已登录 就可以购物了
+// 				// 获取goodid参数
+// 			String goodsIdStr = request.getParameter("goodid");
+// 			int goodsId = Integer.parseInt(goodsIdStr);
+
+// 			// 根据商品id获取商品信息
+// 			Goods goods = goodsService.getGoodsById(goodsId);
+// 			// 获取库存
+// 			Integer stock = goods.getStock();
+// 			if (stock <= 0) {// 说明库存不足，返回empty
+// 				response.getWriter().append("empty");
+// 			} else {// 库存充足，可以加入购物车
+// 					// 先把商品加到购物车再返回ok
+// 					// 未完待续
+// 				response.getWriter().append("ok");
+// 			}
+
+// 		}
 	}
 
 }
