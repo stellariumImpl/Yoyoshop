@@ -31,4 +31,11 @@ public interface UserService {
 	 * @return
 	 */
 	boolean updateUser(User user);
+	
+	/**
+	 * 根据用户id获取用户信息
+	 * @param userId
+	 * @return 返回用户
+	 */
+	User getUserById(int userId);
 }
