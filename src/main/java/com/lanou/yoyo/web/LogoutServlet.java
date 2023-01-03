@@ -23,8 +23,8 @@ public class LogoutServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.removeAttribute("user");
 
-		response.sendRedirect("/Yoyoshop/index/login");
-//		response.sendRedirect("/fygod_shop/index/index");
+		response.sendRedirect("/YoyoShop/index/login");
+//		response.sendRedirect("/YoyoShop/index/index");
 	}
 
 }
