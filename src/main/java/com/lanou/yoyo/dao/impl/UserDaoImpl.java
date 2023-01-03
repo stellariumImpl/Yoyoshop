@@ -47,4 +47,17 @@ public class UserDaoImpl implements UserDao {
 		
 		return row;
 	}
+	
+	/**
+	 * 根据用户id 查询用户
+	 * 
+	 * @param userId
+	 * @return 查询到的用户
+	 */
+	@Override
+	public User selectUserById(int userId) {
+		String sql = "select * from user where status = 1 and id = ?";
+		User user = DBUtils.queryOne(sql, User.class, userId);
+		return user;
+	}
 }
