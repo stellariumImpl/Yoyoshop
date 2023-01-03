@@ -27,7 +27,7 @@
 			<c:if test="${type==null}">
 				<c:if test="${typeid==2}"><h2>热销推荐</h2></c:if>		
 				<c:if test="${typeid==3}"><h2>新品推荐</h2></c:if>
-				<c:if test="${typeid==4}"><h2>搜索结果</h2></c:if>
+				<c:if test="${typeid==4}"><h2>搜索结果: ${keyword}</h2></c:if>
 			</c:if>		
 			<div class="col-md-12 product-model-sec">
 				<c:forEach var="goods" items="${goodList}">
