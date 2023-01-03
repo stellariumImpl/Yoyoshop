@@ -83,7 +83,7 @@ public class LoginServlet extends HttpServlet {
 			
 //			request.getRequestDispatcher("/index/index").forward(request, response);
 			//使用重定向技术，请求/index/index
-			response.sendRedirect("/Yoyoshop/index/index");
+			response.sendRedirect("/YoyoShop/index/index");
 		}
 		
 
