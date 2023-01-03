@@ -59,5 +59,16 @@ public class UserServiceImpl implements UserService {
 			return false;
 		}
 	}
-
+	
+	/**
+	 * 根据用户id获取用户信息
+	 * @param userId
+	 * @return 返回用户
+	 */
+	@Override
+	public User getUserById(int userId) {
+		
+		User user = userDao.selectUserById(userId);
+		return user;
+	}
 }
