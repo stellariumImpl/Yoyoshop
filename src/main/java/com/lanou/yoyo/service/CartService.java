@@ -12,5 +12,10 @@ public interface CartService {
 	 * @param cart
 	 */
 	void addGoodsToCart(Goods goods, Cart cart);
-
+	
+	/**
+	 * 扣减订单
+	 * 自己写的 不一定对
+	 */
+	boolean lessenGoodsFromCartByGoodsId(int goods,Cart cart);
 }
