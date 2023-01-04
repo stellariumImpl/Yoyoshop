@@ -3,7 +3,7 @@ package com.lanou.yoyo.bean;
 public class Item {
 	private Integer id;
 	private Double price;
-	private Integer amout;
+	private Integer amount;
 	private Integer goodId;
 	private Integer orderId;
 	
@@ -26,11 +26,11 @@ public class Item {
 	public void setPrice(Double price) {
 		this.price = price;
 	}
-	public Integer getAmout() {
-		return amout;
+	public Integer getAmount() {
+		return amount;
 	}
-	public void setAmout(Integer amout) {
-		this.amout = amout;
+	public void setAmount(Integer amount) {
+		this.amount = amount;
 	}
 	public Integer getGoodId() {
 		return goodId;
@@ -46,7 +46,7 @@ public class Item {
 	}
 	@Override
 	public String toString() {
-		return "Item [id=" + id + ", price=" + price + ", amout=" + amout + ", goodId=" + goodId + ", orderId="
+		return "Item [id=" + id + ", price=" + price + ", amount=" + amount + ", goodId=" + goodId + ", orderId="
 				+ orderId + ", goods=" + goods + "]";
 	}
 	
