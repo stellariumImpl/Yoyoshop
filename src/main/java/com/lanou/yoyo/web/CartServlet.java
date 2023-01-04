@@ -1,4 +1,4 @@
-package com.fygod.shop.web;
+package com.lanou.yoyo.web;
 
 import java.io.IOException;
 import java.util.List;
@@ -10,12 +10,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.fygod.shop.bean.Type;
-import com.fygod.shop.bean.User;
-import com.fygod.shop.service.TypeService;
-import com.fygod.shop.service.UserService;
-import com.fygod.shop.service.impl.TypeServiceImpl;
-import com.fygod.shop.service.impl.UserServiceImpl;
+import com.lanou.yoyo.bean.Type;
+import com.lanou.yoyo.bean.User;
+import com.lanou.yoyo.service.TypeService;
+import com.lanou.yoyo.service.UserService;
+import com.lanou.yoyo.service.impl.TypeServiceImpl;
+import com.lanou.yoyo.service.impl.UserServiceImpl;
 
 /**
  * Servlet implementation class CartServlet
