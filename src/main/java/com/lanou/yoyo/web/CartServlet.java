@@ -41,7 +41,7 @@ public class CartServlet extends HttpServlet {
 		// 从session中获取user
 		User user = (User) session.getAttribute("user");
 		if (user == null) {
-			response.sendRedirect("/fygod_shop/index/login");
+			response.sendRedirect("/YoyoShop/index/login");
 		}else {
 			
 			
