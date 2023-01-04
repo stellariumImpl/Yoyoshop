@@ -1,6 +1,9 @@
 package com.lanou.yoyo.web;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,9 +11,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.lanou.yoyo.bean.Cart;
 import com.lanou.yoyo.bean.Goods;
+import com.lanou.yoyo.bean.Item;
 import com.lanou.yoyo.bean.User;
+import com.lanou.yoyo.service.CartService;
 import com.lanou.yoyo.service.GoodsService;
+import com.lanou.yoyo.service.impl.CartServiceImpl;
 import com.lanou.yoyo.service.impl.GoodsServiceImpl;
 
 /**
@@ -21,6 +28,8 @@ public class AddToCartServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	private GoodsService goodsService = new GoodsServiceImpl();
+	
+	private CartService cartService = new CartServiceImpl();
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
