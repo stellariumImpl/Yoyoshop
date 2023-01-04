@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Cart {
 	private Double total; // 购物车总金额
-	private Integer amout; // 订单数量
+	private Integer amount; // 订单数量
 	private Integer userId; // 即将下单用户的id
 	private List<Item> itemList; // 购买项列表
 
@@ -16,12 +16,12 @@ public class Cart {
 		this.total = total;
 	}
 
-	public Integer getAmout() {
-		return amout;
+	public Integer getAmount() {
+		return amount;
 	}
 
-	public void setAmout(Integer amout) {
-		this.amout = amout;
+	public void setAmount(Integer amount) {
+		this.amount = amount;
 	}
 
 	public Integer getUserId() {
@@ -42,7 +42,7 @@ public class Cart {
 
 	@Override
 	public String toString() {
-		return "Cart [total=" + total + ", amout=" + amout + ", userId=" + userId + ", itemList=" + itemList + "]";
+		return "Cart [total=" + total + ", amount=" + amount + ", userId=" + userId + ", itemList=" + itemList + "]";
 	}
 
 }
