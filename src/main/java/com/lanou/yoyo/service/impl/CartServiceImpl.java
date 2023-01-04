@@ -85,8 +85,33 @@ public class CartServiceImpl implements CartService {
 		}else {
 			return false;
 		}
-		
-		
+	}
+	
+	/**
+	 * 根据商品id删东西
+	 * @param goods
+	 * @param cart
+	 * 自己写的不一定对
+	 */
+	@Override
+	public boolean deleteGoodsFromCartByGoodsId(int goodsId, Cart cart) {
+		List<Item> itemList = cart.getItemList();
+		for(int i=0;i<itemList.size();i++) {
+			Item item = itemList.get(i);
+			if(item.getGoodId()==goodsId) {
+				//把item从itemList中删除掉
+				itemList.remove(i);
+				//总数量还是得改的
+				cart.setAmount(cart.getAmount()-item.getAmount());
+				cart.setTotal(cart.getTotal()-item.getAmount()*item.getPrice());
+				break;
+			}
+		}
+		if(itemList.size()==0) {
+			return true;
+		}else {
+			return false;
+		}
 	}
 
 }
