@@ -18,4 +18,12 @@ public interface CartService {
 	 * 自己写的 不一定对
 	 */
 	boolean lessenGoodsFromCartByGoodsId(int goods,Cart cart);
+	
+	/**
+	 * 删东西
+	 * @param goods
+	 * @param cart
+	 * 自己写的不一定对
+	 */
+	boolean deleteGoodsFromCartByGoodsId(int goods,Cart cart);
 }
