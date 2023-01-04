@@ -22,6 +22,8 @@ public class LogoutServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
 		session.removeAttribute("user");
+		
+		session.removeAttribute("order");
 
 		response.sendRedirect("/YoyoShop/index/login");
 //		response.sendRedirect("/YoyoShop/index/index");
