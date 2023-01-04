@@ -56,5 +56,37 @@ public class CartServiceImpl implements CartService {
 		}
 
 	}
+	
+	/**
+	 * 扣减订单,true,交给外层servlet删除order
+	 * 自己写的 不一定对
+	 */
+	@Override
+	public boolean lessenGoodsFromCartByGoodsId(int goodsId, Cart cart) {
+		
+		List<Item> itemList = cart.getItemList();
+		
+		for(int i=0;i<itemList.size();i++) {
+			Item item = itemList.get(i);
+			if (item.getGoodId() == goodsId) {
+				item.setAmount(item.getAmount()-1);	
+				cart.setAmount(cart.getAmount() - 1);
+				cart.setTotal(cart.getTotal() - item.getPrice());
+				if(item.getAmount()==0) {
+					itemList.remove(i);
+				}
+				break;
+			}
+		}
+		
+		//购买项数量为0了，删掉order
+		if(itemList.size()==0) {
+			return true;
+		}else {
+			return false;
+		}
+		
+		
+	}
 
 }
