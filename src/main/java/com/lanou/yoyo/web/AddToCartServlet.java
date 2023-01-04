@@ -46,7 +46,26 @@ public class AddToCartServlet extends HttpServlet {
 				response.getWriter().append("empty");
 			} else {// 库存充足，可以加入购物车
 					// 先把商品加到购物车再返回ok
-					// 未完待续
+				//2023.1.4
+				Cart cart = (Cart) session.getAttribute("order");
+				System.out.println(cart);
+				// 如果为首次从session中获取购物车信息order，获取不到，cart为null
+				if (cart == null) {// 首次从session中获取order，往session中存一个空的购物车，不含键值对
+					cart = new Cart();
+					cart.setTotal(0.0);
+					// 商品总数为0，用户id
+					cart.setAmount(0);
+					cart.setUserId(user.getId());
+					// 创建一个购买项 列表
+					List<Item> itemList = new ArrayList<>();
+					// 把空的购买项列表设置到购物车中，表示一种商品也没买，以后买的时候，再往列表里加
+					cart.setItemList(itemList);
+					// 把购物车存入session中，存入以后，下次就能从session获取购物车信息了
+					session.setAttribute("order", cart);
+				}
+
+				cartService.addGoodsToCart(goods, cart);
+
 				response.getWriter().append("ok");
 			}
 
