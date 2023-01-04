@@ -13,9 +13,7 @@ import javax.servlet.http.HttpSession;
 import com.lanou.yoyo.bean.Type;
 import com.lanou.yoyo.bean.User;
 import com.lanou.yoyo.service.TypeService;
-import com.lanou.yoyo.service.UserService;
 import com.lanou.yoyo.service.impl.TypeServiceImpl;
-import com.lanou.yoyo.service.impl.UserServiceImpl;
 
 /**
  * Servlet implementation class CartServlet
@@ -25,8 +23,6 @@ public class CartServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	private TypeService typeService = new TypeServiceImpl();
-	
-	private UserService userService = new UserServiceImpl();
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
