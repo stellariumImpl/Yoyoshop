@@ -57,7 +57,7 @@ public class AddToCartServlet extends HttpServlet {
 					// 先把商品加到购物车再返回ok
 				//2023.1.4
 				Cart cart = (Cart) session.getAttribute("order");
-				System.out.println(cart);
+// 				System.out.println(cart);
 				// 如果为首次从session中获取购物车信息order，获取不到，cart为null
 				if (cart == null) {// 首次从session中获取order，往session中存一个空的购物车，不含键值对
 					cart = new Cart();
