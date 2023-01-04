@@ -3,6 +3,7 @@ package com.lanou.yoyo.bean;
 import java.util.List;
 
 public class Cart {
+	private Integer id; //order_id
 	private Double total; // 购物车总金额
 	private Integer amount; // 订单数量
 	private Integer userId; // 即将下单用户的id
