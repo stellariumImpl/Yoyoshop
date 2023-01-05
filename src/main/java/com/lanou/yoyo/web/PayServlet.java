@@ -70,6 +70,9 @@ public class PayServlet extends HttpServlet {
 			}else {//订单更新失败
 				request.setAttribute("msg", "支付失败了，请检查收货人以及收货地址");
 			}
+			
+			session.removeAttribute("order");
+			
 			List<Type> typeList=typeService.getTypeList();
 			request.setAttribute("typeList", typeList);
 			
