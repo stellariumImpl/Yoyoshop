@@ -71,6 +71,19 @@ public class AddToCartServlet extends HttpServlet {
 					cart.setItemList(itemList);
 					// 把购物车存入session中，存入以后，下次就能从session获取购物车信息了
 					session.setAttribute("order", cart);
+				}else {//以前已经加入过购物车
+					List<Item> itemList = cart.getItemList();
+					for(int i=0;i<itemList.size();i++) {
+						//获取购买项
+						Item item = itemList.get(i);
+						int amount = item.getAmount();
+						if(item.getGoodId()==goods.getId()&&amount>=stock){
+//							request.setAttribute("msg", "下单失败，商品[" + goods.getName() + "]库存不足，库存余量为 " + stock + " 件");
+							response.getWriter().append("empty");
+							return;
+						}
+					}
+					
 				}
 
 				cartService.addGoodsToCart(goods, cart);
