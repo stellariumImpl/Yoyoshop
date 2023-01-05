@@ -24,6 +24,7 @@ import com.lanou.yoyo.service.TypeService;
 import com.lanou.yoyo.service.impl.GoodsServiceImpl;
 import com.lanou.yoyo.service.impl.OrderServiceImpl;
 import com.lanou.yoyo.service.impl.TypeServiceImpl;
+import com.lanou.yoyo.service.impl.ItemServiceImpl;
 
 
 /**
