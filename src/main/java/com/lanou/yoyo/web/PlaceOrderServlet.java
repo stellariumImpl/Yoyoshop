@@ -38,6 +38,8 @@ public class PlaceOrderServlet extends HttpServlet {
 	private GoodsService goodsService = new GoodsServiceImpl();
 	
 	private OrderService orderService = new OrderServiceImpl();
+	
+	private ItemService itemService = new ItemServiceImpl();
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
