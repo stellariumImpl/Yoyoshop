@@ -52,7 +52,7 @@ public class PlaceOrderServlet extends HttpServlet {
 		
 		if(user==null) {
 			request.setAttribute("msg", "请登录后再提交订单！");
-			response.sendRedirect("/fygod_shop/index/login");
+			response.sendRedirect("/YoyoShop/index/login");
 		}else {
 			Cart cart =(Cart)session.getAttribute("order");
 			List<Item> itemList = cart.getItemList();
