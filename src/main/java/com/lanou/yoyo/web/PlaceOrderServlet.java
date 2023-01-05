@@ -19,6 +19,7 @@ import com.lanou.yoyo.bean.Type;
 import com.lanou.yoyo.bean.User;
 import com.lanou.yoyo.service.GoodsService;
 import com.lanou.yoyo.service.OrderService;
+import com.lanou.yoyo.service.ItemService;
 import com.lanou.yoyo.service.TypeService;
 import com.lanou.yoyo.service.impl.GoodsServiceImpl;
 import com.lanou.yoyo.service.impl.OrderServiceImpl;
@@ -87,7 +88,21 @@ public class PlaceOrderServlet extends HttpServlet {
 			
 			System.out.println("订单的id是: " + orderId);
       //to be continued
+			//把订单id设置给订单对象
+			order.setId(orderId);
+			//把订单中的商品itemList加入到数据库的item表中
+			for(int i=0;i<itemList.size();i++) {
+				Item item = itemList.get(i);
+				//给购买项添加订单id
+				item.setOrderId(orderId);//此时的购买项已经有了订单id
+			}
+			//把订单中的商品itemList
+			itemService.addItemList(itemList);
 			
+			//清空购物车
+			session.removeAttribute("order");
+			
+			session.setAttribute("order", order);
 			request.getRequestDispatcher("/index/pay.jsp").forward(request, response);
 		}
 	}
