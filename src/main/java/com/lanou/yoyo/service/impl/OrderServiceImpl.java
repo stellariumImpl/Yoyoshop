@@ -19,5 +19,32 @@ public class OrderServiceImpl implements OrderService {
 		int orderId = orderDao.insertOrder(order);
 		return orderId;
 	}
+	
+	/**
+	 * 根据订单id 获取订单信息
+	 * @param orderId
+	 * @return
+	 */
+	@Override
+	public Order getOrderById(int orderId) {
+		Order order = orderDao.selectOrderById(orderId);
+		return order;
+	}
+
+	/**
+	 * 更新订单信息
+	 * @param order 要更新的订单
+	 * @return 如果更新成功 返回true
+	 */
+	@Override
+	public boolean updateOrder(Order order) {
+		int row = orderDao.updateOrder(order);
+		if(row==1) {
+			return true;
+		}else{
+			return false;
+		}
+		
+	}
 
 }
