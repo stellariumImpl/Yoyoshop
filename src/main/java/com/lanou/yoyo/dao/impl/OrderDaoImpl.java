@@ -27,5 +27,29 @@ public class OrderDaoImpl implements OrderDao {
 		
 		return orderId;
 	}
+	
+	/**
+	 * 根据订单id查询订单
+	 * @param orderId 订单id
+	 * @return 返回订单
+	 */
+	@Override
+	public Order selectOrderById(int orderId) {
+		String sql="select * from `order` where status!=0 and id=?";
+		Order order= DBUtils.queryOne(sql, Order.class,orderId);
+		return order;
+	}
+
+	/**
+	 * 更新订单信息
+	 * @param order 要更新的订单
+	 * @return 如果更新成功 返回true
+	 */
+	@Override
+	public int updateOrder(Order order) {
+		String sql = "update `order` set status= ?, paytype= ? , name= ? , phone=? , address= ? where id=? and status!=0";
+		int row = DBUtils.update(sql, order.getStatus(),order.getPaytype(),order.getName(),order.getPhone(),order.getAddress(),order.getId());
+		return row;
+	}
 
 }
