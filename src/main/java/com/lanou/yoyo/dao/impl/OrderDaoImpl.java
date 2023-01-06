@@ -2,10 +2,12 @@ package com.lanou.yoyo.dao.impl;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import com.lanou.yoyo.bean.Order;
 import com.lanou.yoyo.dao.OrderDao;
 import com.lanou.yoyo.util.DBUtils;
+
 
 public class OrderDaoImpl implements OrderDao {
 
@@ -50,6 +52,18 @@ public class OrderDaoImpl implements OrderDao {
 		String sql = "update `order` set status= ?, paytype= ? , name= ? , phone=? , address= ? where id=? and status!=0";
 		int row = DBUtils.update(sql, order.getStatus(),order.getPaytype(),order.getName(),order.getPhone(),order.getAddress(),order.getId());
 		return row;
+	}
+
+	/**
+	 * 根据用户id查询订单列表
+	 * @param userId
+	 * @return 返回此用户的所有订单 不含被删除的订单
+	 */
+	@Override
+	public List<Order> selectOrderListByUserId(int userId) {
+		String sql = "select * from `order` where status!=0 and user_id = ?";
+		List<Order> orderList = DBUtils.query(sql, Order.class,userId);
+		return orderList;
 	}
 
 }
