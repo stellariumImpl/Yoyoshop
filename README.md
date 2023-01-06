@@ -11,5 +11,5 @@ The default password in c3p0-config.xml should be modified before you start to r
 
 If you have any questions, please contact me at [email](mailto://fifa404yi@yahoo.com) or submit an [issue](https://github.com/stellariumImpl/stellariumImpl.github.io/issues/) for help.
 
-issue: 去支付
+issue: bug
 
