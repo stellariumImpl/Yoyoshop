@@ -29,4 +29,11 @@ public class ItemServiceImpl implements ItemService {
 
 	}
 
+	@Override
+	public List<Item> getItemListByOrderId(int orderId) {
+		//to be continued
+		
+		return null;
+	}
+
 }
