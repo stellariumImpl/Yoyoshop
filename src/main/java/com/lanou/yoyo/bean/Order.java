@@ -1,6 +1,7 @@
 package com.lanou.yoyo.bean;
 
 import java.util.Date;
+import java.util.List;
 
 public class Order {
 	
@@ -15,7 +16,16 @@ public class Order {
 	private String address;
 	
 	private Date systime;
+	public List<Item> getItemList() {
+		return itemList;
+	}
+	public void setItemList(List<Item> itemList) {
+		this.itemList = itemList;
+	}
 	private Integer userId;
+	
+	private List<Item> itemList;
+	
 	public Integer getId() {
 		return id;
 	}
@@ -80,7 +90,8 @@ public class Order {
 	public String toString() {
 		return "Order [id=" + id + ", total=" + total + ", amount=" + amount + ", status=" + status + ", paytype="
 				+ paytype + ", name=" + name + ", phone=" + phone + ", address=" + address + ", systime=" + systime
-				+ ", userId=" + userId + "]";
+				+ ", userId=" + userId + ", itemList=" + itemList + "]";
 	}
+	
 	
 }
