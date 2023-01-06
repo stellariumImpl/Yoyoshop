@@ -36,7 +36,8 @@ public class ToPayServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-
+		List<Type> typeList = typeService.getTypeList();
+		request.setAttribute("typeList", typeList);
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("user");
 		if (user == null) {
@@ -50,9 +51,6 @@ public class ToPayServlet extends HttpServlet {
 
 			request.getRequestDispatcher("/index/pay.jsp").forward(request, response);
 		}
-
-		List<Type> typeList = typeService.getTypeList();
-		request.setAttribute("typeList", typeList);
 	}
 
 }
