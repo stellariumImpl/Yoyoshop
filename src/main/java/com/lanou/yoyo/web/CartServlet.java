@@ -21,29 +21,20 @@ import com.lanou.yoyo.service.impl.TypeServiceImpl;
 @WebServlet("/index/cart")
 public class CartServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
 	private TypeService typeService = new TypeServiceImpl();
-
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		
-		List<Type> typeList = typeService.getTypeList();
-		request.setAttribute("typeList", typeList);
-		
 		HttpSession session = request.getSession();
-		// 从session中获取user
-		User user = (User) session.getAttribute("user");
-		if (user == null) {
+		User user = (User)session.getAttribute("user");
+		if(user==null) {
 			response.sendRedirect("/YoyoShop/index/login");
 		}else {
-			
-			
+			List<Type> typeList = typeService.getTypeList();
+			request.setAttribute("typeList", typeList);
 			request.getRequestDispatcher("/index/cart.jsp").forward(request, response);
 		}
-
 	}
 
 }
