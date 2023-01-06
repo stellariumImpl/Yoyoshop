@@ -69,4 +69,11 @@ public interface GoodsDao {
 	 * @return
 	 */
 	Goods selectGoodsById(int goodsId);
+	
+	/**
+	 * 更新商品库存
+	 * @param goods 商品
+	 * @return 更新成功返回1 ，失败 0
+	 */
+	int updateGoodsStock(Goods goods);
 }
