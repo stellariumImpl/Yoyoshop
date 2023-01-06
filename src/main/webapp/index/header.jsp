@@ -48,7 +48,7 @@
 							<li><a href="my" <c:if test="${flag==4}">class="active"</c:if>>个人中心</a></li>
 							<li><a href="logout">退出</a></li>
 						</c:if>
-						<li><a href="/YoyoShop/admin.jsp" target="_blank">后台管理</a></li>
+						
 					</ul> 
 					<!--/.navbar-collapse-->
 				</div>
