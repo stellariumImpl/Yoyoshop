@@ -3,6 +3,7 @@ package com.lanou.yoyo.service;
 import java.util.List;
 
 import com.lanou.yoyo.bean.Goods;
+import com.lanou.yoyo.bean.Item;
 
 public interface GoodsService {
 	
@@ -65,5 +66,11 @@ public interface GoodsService {
 	 * @return
 	 */
 	Goods getGoodsById(int goodsId);
+	
+	/**
+	 * 更新购买项列表中商品的库存
+	 * @param goods 购买项列表
+	 */
+	void updateGoodsStockForItemList(List<Item> itemList);
 
 }
