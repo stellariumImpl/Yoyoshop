@@ -1,5 +1,7 @@
 package com.lanou.yoyo.dao;
 
+import java.util.List;
+
 import com.lanou.yoyo.bean.Order;
 
 public interface OrderDao {
@@ -24,4 +26,12 @@ public interface OrderDao {
 	 * @return 如果更新成功 返回true
 	 */
 	int updateOrder(Order order);
+	
+	/**
+	 * 根据用户id查询订单列表
+	 * @param userId
+	 * @return 返回此用户的所有订单 不含被删除的订单
+	 */
+	List<Order> selectOrderListByUserId(int userId);
+
 }
