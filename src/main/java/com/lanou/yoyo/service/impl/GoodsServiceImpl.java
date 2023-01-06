@@ -3,6 +3,7 @@ package com.lanou.yoyo.service.impl;
 import java.util.List;
 
 import com.lanou.yoyo.bean.Goods;
+import com.lanou.yoyo.bean.Item;
 import com.lanou.yoyo.bean.Type;
 import com.lanou.yoyo.dao.GoodsDao;
 import com.lanou.yoyo.dao.TypeDao;
@@ -129,6 +130,26 @@ public class GoodsServiceImpl implements GoodsService {
 		goods.setType(type);
 		
 		return goods;
+	}
+
+	/**
+	 * 更新商品库存
+	 * @param goods
+	 */
+	@Override
+	public void updateGoodsStockForItemList(List<Item> itemList) {
+		// TODO Auto-generated method stub
+		for(int i=0;i<itemList.size();i++) {
+			Item item = itemList.get(i);
+			int amount= item.getAmount();
+			int goodsId = item.getGoodId();
+			
+			Goods goods =goodsDao.selectGoodsById(goodsId);
+			goods.setStock(goods.getStock()-amount);
+			
+			//更新商品库存
+			goodsDao.updateGoodsStock(goods);
+		}
 	}
 
 }
