@@ -1,5 +1,7 @@
 package com.lanou.yoyo.service;
 
+import java.util.List;
+
 import com.lanou.yoyo.bean.Order;
 
 public interface OrderService {
@@ -24,5 +26,12 @@ public interface OrderService {
 	 * @return 如果更新成功 返回true
 	 */
 	boolean updateOrder(Order order);
+	
+	/**
+	 * 根据用户id获取订单列表
+	 * @param userId
+	 * @return 返回此用户的所有订单 不含被删除的订单
+	 */
+	List<Order> getOrderListByUserId(int userId);
 
 }
