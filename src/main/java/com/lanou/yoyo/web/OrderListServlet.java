@@ -43,7 +43,9 @@ public class OrderListServlet extends HttpServlet {
 			int userId = user.getId();
 			//根据用户id获取订单列表
 			List<Order> orderList = orderService.getOrderListByUserId(userId);
-			request.setAttribute("orderList", orderList);
+			if(orderList.size()>0) {
+				request.setAttribute("orderList", orderList);
+			}
 			
 			
 			
