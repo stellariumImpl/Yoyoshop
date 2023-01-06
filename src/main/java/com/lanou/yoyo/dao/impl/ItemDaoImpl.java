@@ -1,5 +1,7 @@
 package com.lanou.yoyo.dao.impl;
 
+import java.util.List;
+
 import com.lanou.yoyo.bean.Item;
 import com.lanou.yoyo.dao.ItemDao;
 import com.lanou.yoyo.util.DBUtils;
@@ -16,6 +18,18 @@ public class ItemDaoImpl implements ItemDao {
 		String sql = "insert into item(price,amount,good_id,order_id)values(?,?,?,?)";
 		int row = DBUtils.update(sql, item.getPrice(),item.getAmount(),item.getGoodId(),item.getOrderId());
 		return row;
+	}
+
+	/**
+	 * 根据订单id获取购买项列表
+	 * @param orderId 订单id
+	 * @return 返回购买项列表
+	 */
+	@Override
+	public List<Item> selectItemListByOrderId(int orderId) {
+		String sql = "select * from item where order_id=?";
+		List<Item> itemList =  DBUtils.query(sql, Item.class, orderId);
+		return itemList;
 	}
 
 }
