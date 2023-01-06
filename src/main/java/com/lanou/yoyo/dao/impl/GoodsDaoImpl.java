@@ -110,11 +110,16 @@ public class GoodsDaoImpl implements GoodsDao {
 		Goods goods = DBUtils.queryOne(sql, Goods.class,goodsId);
 		return goods;
 	}
-
 	
-
-	
-	
-	
-
+	/**
+	 * 更新商品库存
+	 * @param goods 商品
+	 * @return 更新成功返回1 ，失败 0
+	 */
+	@Override
+	public int updateGoodsStock(Goods goods) {
+		String sql = "update goods set stock = ? where id = ?";
+		int row = DBUtils.update(sql, goods.getStock(),goods.getId());
+		return row;
+	}
 }
