@@ -43,7 +43,7 @@ public class PayServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		User user = (User)session.getAttribute("user");
 		if(user==null) {
-			response.sendRedirect("/fygod_shop/index/login");
+			response.sendRedirect("/YoyoShop/index/login");
 		}else {
 			request.setCharacterEncoding("UTF-8");
 			//获取请求参数id,paytype,name,phone,address
@@ -85,6 +85,10 @@ public class PayServlet extends HttpServlet {
 			}else {//订单更新失败
 				request.setAttribute("msg", "支付失败了，请检查收货人以及收货地址");
 			}
+			
+			session.removeAttribute("order");
+			
+			
 			List<Type> typeList=typeService.getTypeList();
 			request.setAttribute("typeList", typeList);
 			
